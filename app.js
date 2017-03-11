@@ -1,11 +1,11 @@
 var express = require('express');
 var path = require('path');
-var https = require( 'https' );
 var moment = require('moment');
+var http = require('http');
 var app = express();
 var re = new RegExp("^[0-9]*$");
 
-app.set( 'port', process.env.PORT || 3001 );
+app.set( 'port', process.env.PORT || 8080 );
 
 app.get('/', function (req, res) {
   
@@ -18,11 +18,10 @@ app.get('/:data', function(req, res){
     var date = req.params.data;
     var stamp = {"unix": null, "natrual": null};
     
-    //Unix to Natural Form
     if(re.test(date))
     {
-     
-      if(moment(date, "X").isValid())
+       //console.log("unix");
+       if(moment(date, "X").isValid())
       {
           stamp = {"unix": moment(date, "X").unix(),
                    "natrual": moment(date, "X").format('MMMM DD, YYYY')
@@ -30,7 +29,6 @@ app.get('/:data', function(req, res){
       }
     }
     
-    //Natural form to Unix
     else
     {
       if(moment(date, "MMM DD, YYYY").isValid())
@@ -45,6 +43,6 @@ app.get('/:data', function(req, res){
     
 })
 
-https.createServer( app ).listen( app.get( 'port' ), function (){
+http.createServer( app ).listen( app.get( 'port' ), function (){
   console.log( 'Express server listening on port ' + app.get( 'port' ));
 });
