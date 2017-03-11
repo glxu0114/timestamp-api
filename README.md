@@ -7,7 +7,7 @@
 3. If it does not contain a date or Unix timestamp, it returns null for those properties.
 
 ## Example usage:
-https://glx-timestamp-api.herokuapp.com/December%2015,%202015
+https://glx-timestamp-api.herokuapp.com/December%2015,%202015 <br/>
 https://glx-timestamp-api.herokuapp.com/1450137600
 
 ## Example output:
