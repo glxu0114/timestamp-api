@@ -17,9 +17,10 @@ app.get('/:data', function(req, res){
     var date = req.params.data;
     var stamp = {"unix": null, "natrual": null};
     
+    //Unix to Natural Time
     if(re.test(date))
     {
-       //console.log("unix");
+     
        if(moment(date, "X").isValid())
       {
           stamp = {"unix": moment(date, "X").unix(),
@@ -28,6 +29,7 @@ app.get('/:data', function(req, res){
       }
     }
     
+    //Nautral Time to Unix
     else
     {
       if(moment(date, "MMM DD, YYYY").isValid())
