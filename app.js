@@ -1,7 +1,6 @@
 var express = require('express');
 var path = require('path');
 var moment = require('moment');
-var http = require('http');
 var app = express();
 var re = new RegExp("^[0-9]*$");
 
@@ -43,6 +42,6 @@ app.get('/:data', function(req, res){
     
 })
 
-http.createServer( app ).listen( app.get( 'port' ), function (){
+app.listen( app.get( 'port' ), function (){
   console.log( 'Express server listening on port ' + app.get( 'port' ));
 });
